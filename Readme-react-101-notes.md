@@ -29,3 +29,4 @@ React can be integrated with any application. Just like Jquery.
 3.  A functional component is a just a JavaScript function which returns as JSX code
 4.  A Class component is JS class which can use the concepts of OOJS (Object oriented JavaScript)
 5.  Inside a component there can be only one root elemeent .The root element can not have siblings.
+6.  Inside a functional component if we have a one single function that is exported then, and if that function is exported using default keyword then we would not need a double curly brace to import the function
