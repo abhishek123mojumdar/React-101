@@ -1,9 +1,43 @@
 import React, { Component } from 'react';
 
 class Greet extends Component {
+  constructor(props) {
+    super(props); // this is the method which call the constructor of the parent class of this dervied class
+    this.state = {
+      name: 'Abhishek',
+      class: 'Front End',
+    };
+
+    console.log('Constructor is called');
+  }
+
+  static getDerivedStateFromProps() {
+    console.log('getDerivedStateFromProps is called');
+  }
+
+  componentDidMount() {
+    console.log('component did mount is called');
+  }
+
+  changeStateValue() {
+    this.setState({
+      class: 'React JS',
+    });
+  }
+
   render() {
-    return <div>Hello This is a class component</div>;
+    console.log('render is called');
+    return (
+      <div>
+        Hello This is a class component and you are studying in{' '}
+        {this.state.name}'s {this.state.class} class
+        <br />
+        <button onClick={this.changeStateValue.bind(this)}> Change name</button>
+      </div>
+    );
   }
 }
 
 export default Greet;
+
+// all these functions are getting called by default , we are not calling this functions manually . React is calling them

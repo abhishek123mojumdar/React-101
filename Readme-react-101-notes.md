@@ -30,3 +30,39 @@ React can be integrated with any application. Just like Jquery.
 4.  A Class component is JS class which can use the concepts of OOJS (Object oriented JavaScript)
 5.  Inside a component there can be only one root elemeent .The root element can not have siblings.
 6.  Inside a functional component if we have a one single function that is exported then, and if that function is exported using default keyword then we would not need a double curly brace to import the function
+
+## Component lifecycle
+
+When we build components , the components goes through several stages in its lifecycle.
+Life cycle methods do not exsist in a functional component.
+Life cycle methods can be divided into 4 phases
+
+1. Mounting --> This method is called when the instance of the component is created and inserted into the DOM
+2. Updating --> When the component is re-rendered as a result of the changes in the state or props
+3. Unmounting --> When the component is removed from the DOM
+4. Error handling --> When there is a problem / error in the rendering of the component
+
+## Mounting
+
+1. constructor() --> will be called whenever a component is created , it is the best place to initialize STATE and bind event handlers to class instance ,we should not make http call in constructor. 
+2. static getDerivedStateFromProps() --> a rarely used method , it basically monitors the change in the props over time. As this is a static method we will not have access to the THIS key word inside this method. 
+3. render()
+4. ccomponentDidMount() --> Gets called immediately after a component and all its children component have been rendered. Do all the ajax class to load data here.
+
+## Updating
+
+1. constructor
+2. static getDerivedStateFromProps
+3. shouldComponentUpdate
+4. render
+5. getSnapshotBeforeUpdate()
+6. componentDidUpdate()
+
+## Unmounting
+
+1. componentWillUnmount() method allows us to execute the React code when the component gets destroyed or unmounted from the DOM (Document Object Model). This method is called during the Unmounting phase of the React Life-cycle i.e before the component gets unmounted
+
+## Error handling
+
+1. static getDerivedStateFromError()
+2. componentDidCatch()
