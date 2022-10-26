@@ -66,3 +66,8 @@ Life cycle methods can be divided into 4 phases
 
 1. static getDerivedStateFromError()
 2. componentDidCatch()
+
+## stateful and stateless components
+
+Any component whether it be a class component or a functional componeent . If it is managing a state it is called a stateful component
+Any component that is not managing state is called stateLess component
