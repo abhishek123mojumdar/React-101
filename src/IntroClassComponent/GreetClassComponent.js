@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Greetchild from './GreetChildComponet';
 
 class Greet extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Greet extends Component {
 
   componentDidMount() {
     console.log('component did mount is called');
+    return null;
   }
 
   changeStateValue() {
@@ -33,6 +35,7 @@ class Greet extends Component {
         {this.state.name}'s {this.state.class} class
         <br />
         <button onClick={this.changeStateValue.bind(this)}> Change name</button>
+        <Greetchild />
       </div>
     );
   }
