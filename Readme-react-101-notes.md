@@ -44,19 +44,19 @@ Life cycle methods can be divided into 4 phases
 
 ## Mounting
 
-1. constructor() --> will be called whenever a component is created , it is the best place to initialize STATE and bind event handlers to class instance ,we should not make http call in constructor. 
-2. static getDerivedStateFromProps() --> a rarely used method , it basically monitors the change in the props over time. As this is a static method we will not have access to the THIS key word inside this method. 
+1. constructor() --> will be called whenever a component is created , it is the best place to initialize STATE and bind event handlers to class instance ,we should not make http call in constructor.
+2. static getDerivedStateFromProps() --> a rarely used method , it basically monitors the change in the props over time. As this is a static method we will not have access to the THIS key word inside this method.
 3. render()
 4. ccomponentDidMount() --> Gets called immediately after a component and all its children component have been rendered. Do all the ajax class to load data here.
 
 ## Updating
 
 1. constructor
-2. static getDerivedStateFromProps
-3. shouldComponentUpdate
-4. render
-5. getSnapshotBeforeUpdate()
-6. componentDidUpdate()
+2. static getDerivedStateFromProps(props,state) -- > called every time the component is re-rendered
+3. shouldComponentUpdate(nextProps, nextState) --> this method receives the updated props and state and dictates if the component should re-render at all or not. We can compare the current values of props and state and previous values of props and state and the return true or false --> this would tell react if to re-render the component or not . This basically helps in performance optimization.
+4. render() --> renders
+5. getSnapshotBeforeUpdate(prevProps, prevState) --> Rarely used method (depends upon shadow Dom)
+6. componentDidUpdate(prevProps, prevState , snapshot) --> this will be called only once in the re-render cycle after the re-render has been completed of the component and all its child components.
 
 ## Unmounting
 

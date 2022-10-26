@@ -3,11 +3,11 @@ import './FEstyle.css';
 
 export default function FEclassroom(props) {
   return (
-    <div>
+    <React.Fragment>
       <p>
         The name is {props.name} whose divison is {props.div}
         {props.children}
       </p>
-    </div>
+    </React.Fragment>
   );
 }

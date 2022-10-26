@@ -14,6 +14,21 @@ class Greet extends Component {
 
   static getDerivedStateFromProps() {
     console.log('getDerivedStateFromProps is called');
+    return null;
+  }
+
+  shouldComponentUpdate() {
+    console.log('should component update has been called');
+    return true;
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log('getSnapshotBeforeUpdate has been called');
+    return true;
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate has been called');
   }
 
   componentDidMount() {

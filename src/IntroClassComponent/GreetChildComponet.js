@@ -13,6 +13,7 @@ class Greetchild extends Component {
 
   static getDerivedStateFromProps() {
     console.log('getDerivedStateFromProps is called child component');
+    return null;
   }
 
   componentDidMount() {
