@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './FEstyle.css';
+import PropTypes from 'prop-types';
 
-export default function FEclassroom(props) {
+const FEclassroom = (props) => {
   let [val, setVal] = useState(10);
 
   function setValue(e) {
@@ -18,7 +19,15 @@ export default function FEclassroom(props) {
       <p>{val}</p>
     </React.Fragment>
   );
-}
+};
+
+FEclassroom.propTypes = {
+  name: PropTypes.string,
+  div: PropTypes.number,
+  animals: PropTypes.arrayOf(PropTypes.string),
+};
+
+export default FEclassroom;
 
 // React fragments are used to remove the unnecessary extra node like a DIV <> </>
 

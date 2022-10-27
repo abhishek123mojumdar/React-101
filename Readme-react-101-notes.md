@@ -77,3 +77,8 @@ Any component that is not managing state is called stateLess component
 1. Refs makes it possible to access DOM nodes directly into react
 2. Refs can only be used in Class components and not in functional components
 3. We can forward refs into the functional component
+
+## Prop types
+
+Prop types is a library in react that helps react to define the types of the props
+This basically helps in data modelling and helps to keep the props type safe
