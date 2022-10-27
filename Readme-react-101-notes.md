@@ -76,3 +76,4 @@ Any component that is not managing state is called stateLess component
 
 1. Refs makes it possible to access DOM nodes directly into react
 2. Refs can only be used in Class components and not in functional components
+3. We can forward refs into the functional component

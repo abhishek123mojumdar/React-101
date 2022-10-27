@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Greetchild from './GreetChildComponet';
+import FwdRefComp from '../FEclassComponent/ForwardRefComponent';
 
 class Greet extends Component {
   constructor(props) {
@@ -9,7 +10,10 @@ class Greet extends Component {
       class: 'Front End',
     };
     this.inputRef = React.createRef();
+    this.inputRefFn = React.createRef();
     this.componentRef = React.createRef();
+    // We can create references of the class components also , this gives us the object of the class and hence we can use the methods and attributes defined in someother class
+
     console.log('Constructor is called');
   }
 
@@ -34,14 +38,15 @@ class Greet extends Component {
 
   componentDidMount() {
     console.log('component did mount is called');
-    console.log(this.inputRef); // this is called in component did mount , by this time the inputRef is already pointing to the input box . Thus the input box is returned as an object (DOM object) and we can call the focus method on the input box by using the ref object
+    //console.log(this.inputRef); // this is called in component did mount , by this time the inputRef is already pointing to the input box . Thus the input box is returned as an object (DOM object) and we can call the focus method on the input box by using the ref object
     this.inputRef.current.focus();
     return null;
   }
 
   changeStateValue() {
-    console.log(this.componentRef);
+    console.log(this.componentRef.current);
     this.componentRef.current.focusOnchildInput();
+    //this.inputRefFn.current.focus();
     this.setState({
       class: 'React JS',
     });
@@ -59,6 +64,7 @@ class Greet extends Component {
         />
         <button onClick={this.changeStateValue.bind(this)}> Change name</button>
         <Greetchild ref={this.componentRef} />
+        <FwdRefComp ref={this.inputRefFn} />
       </div>
     );
   }
