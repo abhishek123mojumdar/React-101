@@ -7,19 +7,19 @@ class Greetchild extends Component {
       name: 'Abhishek in child component',
       class: 'Front End',
     };
-
+    this.childInputRef = React.createRef();
     console.log('Constructor is called in child component');
   }
 
-  static getDerivedStateFromProps() {
-    console.log('getDerivedStateFromProps is called child component');
-    return null;
-  }
+  // static getDerivedStateFromProps() {
+  //   console.log('getDerivedStateFromProps is called child component');
+  //   return null;
+  // }
 
-  componentDidMount() {
-    console.log('component did mount is called child component');
-    return null;
-  }
+  // componentDidMount() {
+  //   console.log('component did mount is called child component');
+  //   return null;
+  // }
 
   changeStateValue() {
     this.setState({
@@ -27,13 +27,20 @@ class Greetchild extends Component {
     });
   }
 
+  focusOnchildInput = () => {
+    this.childInputRef.current.focus();
+  };
+
   render() {
-    console.log('render is called child component');
+    //console.log('render is called child component');
     return (
       <div>
-        Hello This is a class component and you are studying in{' '}
-        {this.state.name}'s {this.state.class} class
-        <br />
+        <h4>Child component {this.state.class}</h4>
+        <input
+          type="text"
+          placeholder="this is child component input box"
+          ref={this.childInputRef}
+        />
         <button onClick={this.changeStateValue.bind(this)}> Change name</button>
       </div>
     );

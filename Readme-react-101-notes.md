@@ -71,3 +71,8 @@ Life cycle methods can be divided into 4 phases
 
 Any component whether it be a class component or a functional componeent . If it is managing a state it is called a stateful component
 Any component that is not managing state is called stateLess component
+
+## Refs
+
+1. Refs makes it possible to access DOM nodes directly into react
+2. Refs can only be used in Class components and not in functional components

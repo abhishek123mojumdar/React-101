@@ -8,35 +8,40 @@ class Greet extends Component {
       name: 'Abhishek',
       class: 'Front End',
     };
-
+    this.inputRef = React.createRef();
+    this.componentRef = React.createRef();
     console.log('Constructor is called');
   }
 
-  static getDerivedStateFromProps() {
-    console.log('getDerivedStateFromProps is called');
-    return null;
-  }
+  // static getDerivedStateFromProps() {
+  //   console.log('getDerivedStateFromProps is called');
+  //   return null;
+  // }
 
-  shouldComponentUpdate() {
-    console.log('should component update has been called');
-    return true;
-  }
+  // shouldComponentUpdate() {
+  //   console.log('should component update has been called');
+  //   return true;
+  // }
 
-  getSnapshotBeforeUpdate() {
-    console.log('getSnapshotBeforeUpdate has been called');
-    return true;
-  }
+  // getSnapshotBeforeUpdate() {
+  //   console.log('getSnapshotBeforeUpdate has been called');
+  //   return true;
+  // }
 
-  componentDidUpdate() {
-    console.log('componentDidUpdate has been called');
-  }
+  // componentDidUpdate() {
+  //   console.log('componentDidUpdate has been called');
+  // }
 
   componentDidMount() {
     console.log('component did mount is called');
+    console.log(this.inputRef); // this is called in component did mount , by this time the inputRef is already pointing to the input box . Thus the input box is returned as an object (DOM object) and we can call the focus method on the input box by using the ref object
+    this.inputRef.current.focus();
     return null;
   }
 
   changeStateValue() {
+    console.log(this.componentRef);
+    this.componentRef.current.focusOnchildInput();
     this.setState({
       class: 'React JS',
     });
@@ -46,11 +51,14 @@ class Greet extends Component {
     console.log('render is called');
     return (
       <div>
-        Hello This is a class component and you are studying in{' '}
-        {this.state.name}'s {this.state.class} class
-        <br />
+        <h2>Parent component {this.state.class}</h2>
+        <input
+          type="text"
+          placeholder="this is parent component input box"
+          ref={this.inputRef}
+        />
         <button onClick={this.changeStateValue.bind(this)}> Change name</button>
-        <Greetchild />
+        <Greetchild ref={this.componentRef} />
       </div>
     );
   }

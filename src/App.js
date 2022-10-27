@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div>
       <Greet />
-      <FEclassroom name="Andrew" div="4.5" />
+      {/* <FEclassroom name="Andrew" div="4.5" /> */}
     </div>
   );
 }
