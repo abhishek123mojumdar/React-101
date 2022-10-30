@@ -3,10 +3,17 @@ import './style.css';
 import FEclassroom from './FEclassComponent/FEclassroom';
 import Greet from './IntroClassComponent/GreetClassComponent';
 import UseEffComp from './FEclassComponent/useEffectHook';
+import FormsComp from './FEclassComponent/FormsComponent';
 import PropTypes from 'prop-types';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 const App = () => {
+  const navigate = useNavigate();
+
+  function goToFormsComponet() {
+    navigate('Forms');
+  }
+
   return (
     <>
       <ul>
@@ -19,6 +26,19 @@ const App = () => {
         <li>
           <Link to="/hook">Hooks (Fragments and porpTypes)</Link>
         </li>
+        <li>
+          <button
+            onClick={goToFormsComponet}
+            style={{
+              borderColor: 'transparent',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              backgroundColor: 'transparent',
+            }}
+          >
+            Go to forms component{' '}
+          </button>
+        </li>
       </ul>
       <hr />
       <Routes>
@@ -30,6 +50,7 @@ const App = () => {
           }
         ></Route>
         <Route path="/hook" element={<UseEffComp />}></Route>
+        <Route path="/Forms" element={<FormsComp />}></Route>
       </Routes>
     </>
     // <div>
