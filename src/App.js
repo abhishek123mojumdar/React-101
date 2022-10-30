@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const App = () => {
   return (
-    <div>
+    <div> 
       <Greet />
       <FEclassroom name="Andrew" div={3} animals={['Dog', 'Cat']} />
       <UseEffComp />
