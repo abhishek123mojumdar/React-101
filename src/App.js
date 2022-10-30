@@ -14,6 +14,8 @@ const App = () => {
     navigate('Forms');
   }
 
+  // Navigate(-1) gets us to the previous page we navigated from
+
   return (
     <>
       <ul>
@@ -36,7 +38,7 @@ const App = () => {
               backgroundColor: 'transparent',
             }}
           >
-            Go to forms component{' '}
+            Go to forms component
           </button>
         </li>
       </ul>
