@@ -21,9 +21,14 @@ const UseEffComp = (props) => {
   // Hence we need to define governing factors on which the useEffect should trigger
   // UseEffect will be called during initial render , so We can place any piece of code that needs to be run at the start of the page
   // We can stop the initial call by putting some condition
+  // Do not call useState inside useEffect it will cause an infinite loop
+  // If at all it needs to be done , pass an empty array
 
   useEffect(() => {
-    if (num1 !== 0) alert('Use effect has been called');
+    if (num1 !== 0) {
+      alert('Use effect has been called');
+      document.title = `Count is ${num1}`;
+    }
   }, [num1]);
 
   return (
