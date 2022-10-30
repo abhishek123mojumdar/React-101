@@ -82,3 +82,11 @@ Any component that is not managing state is called stateLess component
 
 Prop types is a library in react that helps react to define the types of the props
 This basically helps in data modelling and helps to keep the props type safe
+
+# useEffect
+
+This hook is used when we want our component to do something after render
+i.e This function will be called whenever the Render function in App.js is called
+
+React remembers the function that we have passed and then calls the function after DOM updates
+Always remeber hooks always work with functional components
