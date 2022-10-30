@@ -95,3 +95,8 @@ Always remeber hooks always work with functional components
 
 UseRef never re-renders the Component. It does not notify us when its content changes
 UseRef returns a mutuable reference object. It has one property called current
+
+# React router
+
+It is a fully featured client and server side library for react which helps with routing
+For this we would require to use react router dom
