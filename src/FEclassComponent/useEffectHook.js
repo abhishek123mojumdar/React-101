@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './FEstyle.css';
 import PropTypes from 'prop-types';
 
 const UseEffComp = (props) => {
   let [num1, setNum1] = useState(0);
   let [num2, setNum2] = useState(0);
+  let inputRef = useRef();
+  let paraRef = useRef();
 
   function increaseCountFn() {
     setNum1(num1 + 1);
     //alert(num1);
   }
-  function increaseCountFnBtn2() {
-    setNum2(num2 + 1);
-    //alert(num1);
-  }
+
   // If I want to do something after i have updated the value of the variable that I have defined , it will not be possible with the above written code as
   // useSate works as an async function
   // To implement such a functionality I need to useEffect
@@ -31,12 +30,33 @@ const UseEffComp = (props) => {
     }
   }, [num1]);
 
+  function setValueforInput(e) {
+    setNum2(e.target.value);
+  }
+
+  function getValueFromInput() {
+    console.log(inputRef);
+    //document.getElementById('showInpVal') === paraRef.current
+    paraRef.current.innerHTML = inputRef.current.value;
+    paraRef.current.style.color = 'Green';
+    paraRef.current.style.fontSize = '50px';
+  }
+
+  // UseRef is just like Ref in class component , It works the same way.
+  // Here also we get an object which has a current attribute which whould give us access to the DOM element
+
   return (
     <React.Fragment>
+      <input
+        type="number"
+        value={num2}
+        onChange={setValueforInput}
+        ref={inputRef}
+      />
       <button onClick={increaseCountFn}>Click to increase count {num1} </button>
-      <button onClick={increaseCountFnBtn2}>
-        Click to increase count {num2}{' '}
-      </button>
+      <button onClick={getValueFromInput}>Get Value from Input box</button>
+      <span>{num2}</span>
+      <p id="showInpVal" ref={paraRef}></p>
     </React.Fragment>
   );
 };

@@ -90,3 +90,8 @@ i.e This function will be called whenever the Render function in App.js is calle
 
 React remembers the function that we have passed and then calls the function after DOM updates
 Always remeber hooks always work with functional components
+
+# UseRef
+
+UseRef never re-renders the Component. It does not notify us when its content changes
+UseRef returns a mutuable reference object. It has one property called current
