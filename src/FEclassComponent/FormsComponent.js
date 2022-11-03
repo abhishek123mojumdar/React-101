@@ -13,8 +13,8 @@ const FormsComp = (props) => {
   const [userDetailArr, setUserDetailArr] = useState([]);
 
   function handleInputs(e) {
-    // console.log(e.target.name);
-    // console.log(e.target.value);
+    console.log(e.target.name + ' --- ' + e.target.value);
+    //console.log(e.target.value);
     const name = e.target.name;
     setFormData({ ...formData, [name]: e.target.value });
   }
