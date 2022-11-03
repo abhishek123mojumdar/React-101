@@ -4,6 +4,7 @@ import FEclassroom from './FEclassComponent/FEclassroom';
 import Greet from './IntroClassComponent/GreetClassComponent';
 import UseEffComp from './FEclassComponent/useEffectHook';
 import FormsComp from './FEclassComponent/FormsComponent';
+import DynamicFormsComp from './FEclassComponent/DynamicForm';
 import PropTypes from 'prop-types';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 
@@ -41,6 +42,9 @@ const App = () => {
             Go to forms component
           </button>
         </li>
+        <li>
+          <Link to="/dynamicForms">Dynamic Form (Dynamic Form component)</Link>
+        </li>
       </ul>
       <hr />
       <Routes>
@@ -53,6 +57,7 @@ const App = () => {
         ></Route>
         <Route path="/hook" element={<UseEffComp />}></Route>
         <Route path="/Forms" element={<FormsComp />}></Route>
+        <Route path="/dynamicForms" element={<DynamicFormsComp />}></Route>
       </Routes>
     </>
     // <div>
