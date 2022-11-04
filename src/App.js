@@ -3,6 +3,7 @@ import './style.css';
 import FEclassroom from './FEclassComponent/FEclassroom';
 import Greet from './IntroClassComponent/GreetClassComponent';
 import UseEffComp from './FEclassComponent/useEffectHook';
+import ApiImplementation from './FEclassComponent/ReactApiImplimentation';
 import FormsComp from './FEclassComponent/FormsComponent';
 import DynamicFormsComp from './FEclassComponent/DynamicForm';
 import PropTypes from 'prop-types';
@@ -45,6 +46,11 @@ const App = () => {
         <li>
           <Link to="/dynamicForms">Dynamic Form (Dynamic Form component)</Link>
         </li>
+        <li>
+          <Link to="/apiImplementation">
+            Let us check how we implement Api in React{' '}
+          </Link>
+        </li>
       </ul>
       <hr />
       <Routes>
@@ -58,6 +64,10 @@ const App = () => {
         <Route path="/hook" element={<UseEffComp />}></Route>
         <Route path="/Forms" element={<FormsComp />}></Route>
         <Route path="/dynamicForms" element={<DynamicFormsComp />}></Route>
+        <Route
+          path="/apiImplementation"
+          element={<ApiImplementation />}
+        ></Route>
       </Routes>
     </>
     // <div>
