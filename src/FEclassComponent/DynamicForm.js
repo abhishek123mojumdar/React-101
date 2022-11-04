@@ -3,33 +3,37 @@ import './FEstyle.css';
 import PropTypes from 'prop-types';
 
 const DynamicFormsComp = (props) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    age: '',
-    phNumber: '',
-    email: '',
-  });
+  const [formData, setFormData] = useState([
+    {
+      name: '',
+      lastName: '',
+    },
+  ]);
 
   const [userDetailArr, setUserDetailArr] = useState([]);
 
-  function handleInputs(e) {
-    // console.log(e.target.name);
-    // console.log(e.target.value);
-    const name = e.target.name;
-    setFormData({ ...formData, [name]: e.target.value });
+  function handleInputs(index, e) {
+    console.log(index + ' --> ' + e.target.name + ' ---> ' + e.target.value);
+    //console.log(e.target.value);
+    const values = [...formData];
+    values[index][e.target.name] = e.target.value;
+    setFormData(values);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log(formData);
-    let formObject = { ...formData, id: new Date().getMilliseconds() };
-    setUserDetailArr([...userDetailArr, formObject]);
-    setFormData({
-      name: '',
-      age: '',
-      phNumber: '',
-      email: '',
-    });
+    //setUserDetailArr(formData);
+  }
+
+  function addElement() {
+    setFormData([...formData, { name: '', lastName: '' }]);
+  }
+  function removeElement(index) {
+    console.log(index);
+    let dataArr = [...formData];
+    dataArr.splice(index, 1);
+    setFormData(dataArr);
   }
 
   return (
@@ -37,42 +41,41 @@ const DynamicFormsComp = (props) => {
       <p>Welcome to Dynamic component</p>
       <form action="" onSubmit={handleSubmit}>
         <div>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputs}
-            />
-          </label>
-          <label>
-            Age:
-            <input
-              type="text"
-              name="age"
-              value={formData.age}
-              onChange={handleInputs}
-            />
-          </label>
-          <label>
-            Phone number:
-            <input
-              type="text"
-              name="phNumber"
-              value={formData.phNumber}
-              onChange={handleInputs}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleInputs}
-            />
-          </label>
+          {formData.map((form, index) => {
+            return (
+              <div key={index}>
+                <label>
+                  Name:
+                  <input
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={(event) => handleInputs(index, event)}
+                  />
+                </label>
+                <label>
+                  Last Name:
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={(event) => handleInputs(index, event)}
+                  />
+                </label>
+                {index === formData.length - 1 ? (
+                  <button onClick={addElement}>Add</button>
+                ) : (
+                  ''
+                )}
+                {index > 0 ? (
+                  <button onClick={() => removeElement(index)}>Remove</button>
+                ) : (
+                  ''
+                )}
+              </div>
+            );
+          })}
+          <br />
           <button type="submit">Submit</button>
         </div>
       </form>
@@ -81,8 +84,7 @@ const DynamicFormsComp = (props) => {
         {userDetailArr.map((detail) => {
           return (
             <li key={detail.id}>
-              {detail.name} || {detail.age} || {detail.phNumber} ||{' '}
-              {detail.email}
+              {detail.name} || {detail.lastName}
             </li>
           );
         })}
