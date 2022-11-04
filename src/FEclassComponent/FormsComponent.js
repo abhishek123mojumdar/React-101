@@ -11,6 +11,8 @@ const FormsComp = (props) => {
   });
 
   const [userDetailArr, setUserDetailArr] = useState([]);
+  const [error, setError] = useState({ message: '' });
+  const [errorHasOccured, setErrorHasOccured] = useState(false);
 
   function handleInputs(e) {
     console.log(e.target.name + ' --- ' + e.target.value);
@@ -24,12 +26,44 @@ const FormsComp = (props) => {
     console.log(formData);
     let formObject = { ...formData, id: new Date().getMilliseconds() };
     setUserDetailArr([...userDetailArr, formObject]);
+    checkError();
     setFormData({
       name: '',
       age: '',
       phNumber: '',
       email: '',
     });
+  }
+
+  function checkError() {
+    let messageVal = 'Error has occured . Please check ';
+    let usernameerr = '';
+    let phNumber = '';
+    let email = '';
+    let age = '';
+    let isError = false;
+    if (!formData.name) {
+      usernameerr = 'user name';
+      isError = true;
+    }
+    if (!formData.phNumber) {
+      phNumber = 'phone number';
+      isError = true;
+    }
+    if (!formData.email) {
+      email = 'email';
+      isError = true;
+    }
+    if (!formData.age) {
+      age = 'age';
+      isError = true;
+    }
+
+    messageVal =
+      messageVal + ' ' + usernameerr + ' ' + age + ' ' + phNumber + ' ' + email;
+
+    isError ? setErrorHasOccured(true) : setErrorHasOccured(false);
+    setError({ message: messageVal });
   }
 
   return (
@@ -87,6 +121,14 @@ const FormsComp = (props) => {
           );
         })}
       </div>
+
+      {errorHasOccured ? (
+        <>
+          <p style={{ color: 'red' }}>{error.message}</p>
+        </>
+      ) : (
+        ''
+      )}
     </React.Fragment>
   );
 };

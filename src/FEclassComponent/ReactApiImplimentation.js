@@ -7,20 +7,21 @@ const ApiImplementation = (props) => {
   let [layOut, setLayOut] = useState({ cardLayout: true, postLayout: false });
 
   useEffect(() => {
-    async function getData() {
-      let data = await fetch('https://jsonplaceholder.typicode.com/users');
-      let resp = await data.json();
-      console.log(resp);
-      setCardResp(resp);
-      // fetch('https://jsonplaceholder.typicode.com/users')
-      // .then((data) => data.json())
-      // .then((resp) => {
-      //   console.log(resp);
-      // });
-    }
-
     getData();
   }, []);
+
+  async function getData() {
+    let data = await fetch('https://jsonplaceholder.typicode.com/users');
+    let resp = await data.json();
+    console.log(resp);
+    setLayOut({ cardLayout: true, postLayout: false });
+    setCardResp(resp);
+    // fetch('https://jsonplaceholder.typicode.com/users')
+    // .then((data) => data.json())
+    // .then((resp) => {
+    //   console.log(resp);
+    // });
+  }
 
   async function getPostsForUser(userId) {
     let data = await fetch(
@@ -56,7 +57,11 @@ const ApiImplementation = (props) => {
       )}
 
       {layOut.postLayout ? (
-        <p style={{ fontFamily: 'cursive', color: 'red' }}>{posts.body}</p>
+        <>
+          <p style={{ color: 'red' }}>{posts.body}</p>
+          <br />
+          <button onClick={getData}>Get Users</button>
+        </>
       ) : (
         ''
       )}
