@@ -107,3 +107,4 @@ provided by react
 
 Redux help us to do some state management in our application.
 Redux is jutst not only for react , but its is a JS state management library . Its helps to manage the state in any JS application we want
+Redux is basically used to communicate between differnt components which are not necessarily in the parent child relationship
