@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FEstyle.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { maintainData } from '../employeeStore';
+import { commitData } from '../employeeStore';
 
 const EmployeeDetails = (props) => {
   const dispatch = useDispatch();
@@ -21,8 +21,8 @@ const EmployeeDetails = (props) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(maintainData);
-    dispatch(maintainData({ name: '', org: '2', salary: '34', office: '3' }));
+    console.log(commitData);
+    dispatch(commitData({ name: '', org: '2', salary: '34', office: '3' }));
   }
 
   return (
