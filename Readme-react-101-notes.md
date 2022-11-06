@@ -109,5 +109,10 @@ Redux help us to do some state management in our application.
 Redux is jutst not only for react , but its is a JS state management library . Its helps to manage the state in any JS application we want
 Redux is basically used to communicate between differnt components which are not necessarily in the parent child relationship
 It hels us to manage application wide state
-
-Redux data flow
+Views --> are basically react components
+Store --> This inclueds the state and send the state to the component
+In the view (Component) there might be a button that on click might triger an action which
+will dispatch an action from the action creator to the store
+Reducers --> will are pure functions that speceify how the state of the action will change
+Reducers respond with a new state
+This new state will be sent to the component

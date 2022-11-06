@@ -5,9 +5,10 @@ import Greet from './IntroClassComponent/GreetClassComponent';
 import UseEffComp from './FEclassComponent/useEffectHook';
 import ApiImplementation from './FEclassComponent/ReactApiImplimentation';
 import FormsComp from './FEclassComponent/FormsComponent';
-import DynamicFormsComp from './FEclassComponent/DynamicForm';
+import ReducerComponent from './FEclassComponent/ReducerComponent';
 import PropTypes from 'prop-types';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import DynamicFormsComp from './FEclassComponent/DynamicForm';
 import { userinfo } from './loginDetails';
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
     username: '',
     password: '',
   });
-  let [isLogin, setIsLogin] = useState(false);
+  let [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
 
   function goToFormsComponet() {
@@ -55,6 +56,9 @@ const App = () => {
             Let us check how we implement Api in React{' '}
           </Link>
         </li>
+        <li>
+          <Link to="/reducer">Redux concepts</Link>
+        </li>
       </ul>
     );
   }
@@ -79,6 +83,7 @@ const App = () => {
             path="/apiImplementation"
             element={<ApiImplementation />}
           ></Route>
+          <Route path="/reducer" element={<ReducerComponent />}></Route>
         </Routes>
       </>
     );
