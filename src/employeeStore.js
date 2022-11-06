@@ -11,13 +11,13 @@ const empl = createSlice({
       email: '',
     },
     reducers: {
-      commitData(state, action) {
-        return action.payload;
+      commitData: (state, action) => {
+        state.value = action.payload;
       },
     },
   },
 });
 
-console.log(empl.actions);
+console.log(empl);
 export const { commitData } = empl.actions;
 export default empl.reducer;
