@@ -111,14 +111,3 @@ Redux is basically used to communicate between differnt components which are not
 It hels us to manage application wide state
 
 Redux data flow
-                    dispatch action         (previous state , action)
-Action creators --------------------> store <----------------------------> Reducers
-|                                       |
-|                                       |
-|                                       |
-|                                       |
-|                                       |
-|                                       |
-|                                       |
-|                                       |
-|<------------------------------------View
