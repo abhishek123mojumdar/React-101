@@ -16,7 +16,7 @@ const App = () => {
     username: '',
     password: '',
   });
-  let [isLogin, setIsLogin] = useState(true);
+  let [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
   function goToFormsComponet() {
