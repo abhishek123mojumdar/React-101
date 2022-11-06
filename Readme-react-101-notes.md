@@ -100,6 +100,10 @@ UseRef returns a mutuable reference object. It has one property called current
 
 It is a fully featured client and server side library for react which helps with routing
 For this we would require to use react router dom
-Yo use react router we need to wrap out entire application with browser router which is a component 
+Yo use react router we need to wrap out entire application with browser router which is a component
 provided by react
 
+# Redux
+
+Redux help us to do some state management in our application.
+Redux is jutst not only for react , but its is a JS state management library . Its helps to manage the state in any JS application we want
