@@ -22,7 +22,7 @@ const EmployeeDetails = (props) => {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(commitData);
-    dispatch(commitData({ name: '', org: '2', salary: '34', office: '3' }));
+    dispatch(commitData(employeeInfo));
   }
 
   return (

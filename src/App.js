@@ -97,8 +97,6 @@ const App = () => {
 
   function submitLoginDetails(e) {
     e.preventDefault();
-    userinfo;
-    console.log(userinfo);
     let info = userinfo.find((info) => {
       return info.username === userDetails.username;
     });

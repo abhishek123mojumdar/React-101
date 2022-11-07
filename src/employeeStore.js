@@ -10,10 +10,10 @@ const empl = createSlice({
       phNumber: '',
       email: '',
     },
-    reducers: {
-      commitData: (state, action) => {
-        state.value = action.payload;
-      },
+  },
+  reducers: {
+    commitData: (state, action) => {
+      state.value = action.payload;
     },
   },
 });

@@ -113,6 +113,6 @@ Views --> are basically react components
 Store --> This inclueds the state and send the state to the component
 In the view (Component) there might be a button that on click might triger an action which
 will dispatch an action from the action creator to the store
-Reducers --> will are pure functions that speceify how the state of the action will change
+Reducers --> will are pure functions that specify how the state of the action will change
 Reducers respond with a new state
 This new state will be sent to the component
