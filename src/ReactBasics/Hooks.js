@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Hooks.css';
+//import styles from './Hooks.modules.css';
 
 const Hooks = (props) => {
   let imageArray = [
@@ -27,7 +28,7 @@ const Hooks = (props) => {
       <button onClick={changeStyle}>Change Style</button>
       <h1 style={headingStyle}>Hey this is written inside a fragment</h1>
       <p className={paraStyle}>Let us display some images here</p>
-
+      {/* <p className={styles.success}>Succcess</p> */}
       <hr />
       {imageArray.map((data) => (
         <img src={data} alt="No image foud here" />
