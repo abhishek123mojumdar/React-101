@@ -3,6 +3,7 @@ import './Hooks.css';
 //import styles from './Hooks.modules.css';
 
 const Hooks = (props) => {
+  console.log('Hooks component rendered');
   let imageArray = [
     'https://picsum.photos/id/237/200/300',
     'https://picsum.photos/id/16/200/300',
