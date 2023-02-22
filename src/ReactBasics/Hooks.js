@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Hooks.css';
 
 const Hooks = (props) => {
   let imageArray = [
@@ -11,12 +12,22 @@ const Hooks = (props) => {
     'https://picsum.photos/id/25/200/300',
     'https://picsum.photos/id/28/200/300',
   ];
-  let [val, setVal] = useState(10);
+  let [paraStyle, setParaStyle] = useState('');
+  let headingStyle = {
+    color: 'orange',
+    fontSize: '50px',
+  };
+
+  function changeStyle() {
+    setParaStyle('paraClass');
+  }
 
   return (
     <React.Fragment>
-      <h1>Hey this is written inside a fragment</h1>
-      <p>Let us display some images here</p>
+      <button onClick={changeStyle}>Change Style</button>
+      <h1 style={headingStyle}>Hey this is written inside a fragment</h1>
+      <p className={paraStyle}>Let us display some images here</p>
+
       <hr />
       {imageArray.map((data) => (
         <img src={data} alt="No image foud here" />
