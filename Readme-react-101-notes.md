@@ -13,12 +13,14 @@ React can be integrated with any application. Just like Jquery.
 3. The first page that we should concentrate upon is App.js . This the first react function with JSX template that is excuted. This is the place we start writing our JSX code .
 4. The App.js function is rendered inside the index.js . Never make any changes in index.js until absolutely necessary
 
-## Folder Structure :
+## Folder Structure & basics of react:
 
 1. Package.json --> this will have all the dependencies related to the react application. (this is a configuration file which will have notes of all the dependecies)
 2. Node modules will have all the physical dependencies installed
 3. Public --> This is the folder which has the index.html file . This is the only html file that is present in the whole application . (Show Angular)
 4. There is only one div tag in the index.html . The id of the div tag is 'root'. This id is being reference in the index.js and the whole react application is rendered into this div tag .
+5. In every component we use React module . We use this because this is required to get the JSX code working
+6.
 
 ## Parts of react
 

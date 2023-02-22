@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import DynamicFormsComp from './FEclassComponent/DynamicForm';
 import { userinfo } from './loginDetails';
+import BasicHook1UseState from './ReactBasics/Hook1UseState';
 
 const App = () => {
   let [userDetails, setUserDetails] = useState({
@@ -59,6 +60,9 @@ const App = () => {
         <li>
           <Link to="/reducer">Redux concepts</Link>
         </li>
+        <li>
+          <Link to="/Hook1UseState">Hook1 Use state</Link>
+        </li>
       </ul>
     );
   }
@@ -84,6 +88,7 @@ const App = () => {
             element={<ApiImplementation />}
           ></Route>
           <Route path="/reducer" element={<ReducerComponent />}></Route>
+          <Route path="/Hook1UseState" element={<BasicHook1UseState />}></Route>
         </Routes>
       </>
     );
