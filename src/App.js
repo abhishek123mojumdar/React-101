@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import FEclassroom from './FEclassComponent/FEclassroom';
 import Greet from './IntroClassComponent/GreetClassComponent';
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import DynamicFormsComp from './FEclassComponent/DynamicForm';
 import { userinfo } from './loginDetails';
-import BasicHook1UseState from './ReactBasics/Hook1UseState';
+import Hooks from './ReactBasics/Hooks';
 
 const App = () => {
   let [userDetails, setUserDetails] = useState({
@@ -23,6 +23,12 @@ const App = () => {
   function goToFormsComponet() {
     navigate('Forms');
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('Login')) {
+      setIsLogin(true);
+    }
+  }, []);
 
   function getRoutes() {
     return (
@@ -61,7 +67,7 @@ const App = () => {
           <Link to="/reducer">Redux concepts</Link>
         </li>
         <li>
-          <Link to="/Hook1UseState">Hook1 Use state</Link>
+          <Link to="/Hooks">Hooks</Link>
         </li>
       </ul>
     );
@@ -88,7 +94,7 @@ const App = () => {
             element={<ApiImplementation />}
           ></Route>
           <Route path="/reducer" element={<ReducerComponent />}></Route>
-          <Route path="/Hook1UseState" element={<BasicHook1UseState />}></Route>
+          <Route path="/Hooks" element={<Hooks />}></Route>
         </Routes>
       </>
     );
@@ -107,6 +113,7 @@ const App = () => {
     });
     if (info && info.password === userDetails.password) {
       setIsLogin(true);
+      localStorage.setItem('Login', true);
     } else {
       setIsLogin(false);
     }
