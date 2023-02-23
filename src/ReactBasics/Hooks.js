@@ -31,7 +31,8 @@ const Hooks = (props) => {
     setToggle(!toggle);
   }
 
-  function changeCounter() {
+  function changeCounter(item) {
+    console.log(item);
     setCounter(counter + 1);
     // setCounter((prevState) => {
     //   prevState = prevState + 1;
@@ -53,7 +54,7 @@ const Hooks = (props) => {
       ))}
       <p> Here we will check how a counter works</p>
       <p className="paraClass">{counter}</p>
-      <button onClick={() => changeCounter()}>
+      <button onClick={() => changeCounter('Hello from inside change counter')}>
         Click here to increase count
       </button>
     </React.Fragment>
