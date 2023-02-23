@@ -15,13 +15,30 @@ const Hooks = (props) => {
     'https://picsum.photos/id/28/200/300',
   ];
   let [paraStyle, setParaStyle] = useState('');
+  let [toggle, setToggle] = useState(false);
+  let [counter, setCounter] = useState(0);
   let headingStyle = {
     color: 'orange',
     fontSize: '50px',
   };
 
   function changeStyle() {
-    setParaStyle('paraClass');
+    if (!toggle) {
+      setParaStyle('paraClass');
+    } else {
+      setParaStyle('');
+    }
+    setToggle(!toggle);
+  }
+
+  function changeCounter() {
+    setCounter(counter + 1);
+    // setCounter((prevState) => {
+    //   prevState = prevState + 1;
+    //   console.log('prevState', prevState);
+    //   return prevState;
+    // });
+    console.log(counter);
   }
 
   return (
@@ -34,6 +51,11 @@ const Hooks = (props) => {
       {imageArray.map((data) => (
         <img src={data} alt="No image foud here" />
       ))}
+      <p> Here we will check how a counter works</p>
+      <p className="paraClass">{counter}</p>
+      <button onClick={() => changeCounter()}>
+        Click here to increase count
+      </button>
     </React.Fragment>
     //    <>
     //    <h1>Hey this is written inside a fragment</h1>

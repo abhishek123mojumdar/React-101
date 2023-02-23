@@ -30,17 +30,32 @@ const App = () => {
     }
   }, []);
 
+  let navBarStyle = {
+    display: 'flex',
+    width: '100vw',
+    height: '20vh',
+    backgroundColor: 'black',
+    color: 'white',
+    flexWrap: 'wrap',
+  };
+
   function getRoutes() {
     return (
-      <ul>
+      <ol style={navBarStyle}>
         <li>
-          <Link to="/">Greet (Lifecycle hooks)</Link>
+          <Link to="/" style={{ color: 'white' }}>
+            Greet (Lifecycle hooks)
+          </Link>
         </li>
         <li>
-          <Link to="/classRoom">Class (Fragments and porpTypes)</Link>
+          <Link to="/classRoom" style={{ color: 'white' }}>
+            Class (Fragments and porpTypes)
+          </Link>
         </li>
         <li>
-          <Link to="/hook">Hooks (Fragments and porpTypes)</Link>
+          <Link to="/hook" style={{ color: 'white' }}>
+            Hooks (Fragments and porpTypes)
+          </Link>
         </li>
         <li>
           <button
@@ -50,26 +65,33 @@ const App = () => {
               cursor: 'pointer',
               textDecoration: 'underline',
               backgroundColor: 'transparent',
+              color: 'white',
             }}
           >
             Go to forms component
           </button>
         </li>
         <li>
-          <Link to="/dynamicForms">Dynamic Form (Dynamic Form component)</Link>
+          <Link to="/dynamicForms" style={{ color: 'white' }}>
+            Dynamic Form (Dynamic Form component)
+          </Link>
         </li>
         <li>
-          <Link to="/apiImplementation">
+          <Link to="/apiImplementation" style={{ color: 'white' }}>
             Let us check how we implement Api in React{' '}
           </Link>
         </li>
         <li>
-          <Link to="/reducer">Redux concepts</Link>
+          <Link to="/reducer" style={{ color: 'white' }}>
+            Redux concepts
+          </Link>
         </li>
         <li>
-          <Link to="/Hooks">Hooks</Link>
+          <Link to="/Hooks" style={{ color: 'white' }}>
+            Hooks
+          </Link>
         </li>
-      </ul>
+      </ol>
     );
   }
 
