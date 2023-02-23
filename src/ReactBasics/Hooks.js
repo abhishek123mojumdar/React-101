@@ -49,8 +49,8 @@ const Hooks = (props) => {
       <p className={paraStyle}>Let us display some images here</p>
       {/* <p className={styles.success}>Succcess</p> */}
       <hr />
-      {imageArray.map((data) => (
-        <img src={data} alt="No image foud here" />
+      {imageArray.map((data, index) => (
+        <img src={data} alt="No image foud here" key={index} />
       ))}
       <p> Here we will check how a counter works</p>
       <p className="paraClass">{counter}</p>
