@@ -91,6 +91,11 @@ const App = () => {
             Hooks
           </Link>
         </li>
+        <li>
+          <a style={{ color: 'white' }} onClick={logoutUser}>
+            Logout
+          </a>
+        </li>
       </ol>
     );
   }
@@ -139,6 +144,12 @@ const App = () => {
     } else {
       setIsLogin(false);
     }
+  }
+
+  function logoutUser() {
+    localStorage.clear();
+    setIsLogin(false);
+    navigate('/');
   }
 
   function getLoginForm() {
