@@ -92,7 +92,10 @@ const FormsComp = (props) => {
         value={myInputData}
         onChange={manageMyInput}
       />
-      <span> Hey! wazzup. {showData}</span>
+      <span>
+        {' '}
+        Hey! wazzup. {showData} {myInputData}
+      </span>
       {/* to handle form values we need to use onChange event handler. If we do not use that we will not be able to get the values from 
       form inputs. If just use the value prop without the onChange event handler then the input field becomes readonly. */}
 
