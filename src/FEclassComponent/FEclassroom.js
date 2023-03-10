@@ -22,7 +22,7 @@ const FEclassroom = (props) => {
 };
 
 FEclassroom.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   div: PropTypes.number,
   animals: PropTypes.arrayOf(PropTypes.string),
 };
