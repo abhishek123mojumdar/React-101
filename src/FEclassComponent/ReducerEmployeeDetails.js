@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './FEstyle.css';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { commitData } from '../employeeStore';
 
 const EmployeeDetails = (props) => {
   const dispatch = useDispatch();
+  const employeeData = useSelector((state) => {
+    return state.employeeinfo.value;
+  });
   let [employeeInfo, setEmployeeInfo] = useState({
     name: '',
     org: '',
@@ -27,6 +30,12 @@ const EmployeeDetails = (props) => {
 
   return (
     <>
+      <ul>
+        <li>Name : {employeeData.name}</li>
+        <li>Organization : {employeeData.org}</li>
+        <li>Salary : {employeeData.salary}</li>
+        <li>Office : {employeeData.office}</li>
+      </ul>
       <form action="" onSubmit={handleSubmit}>
         <div>
           <label>

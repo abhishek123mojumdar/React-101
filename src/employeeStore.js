@@ -15,9 +15,17 @@ const empl = createSlice({
     commitData: (state, action) => {
       state.value = action.payload;
     },
+    resetState: (state, action) => {
+      state.value = {
+        name: 'Abhishek',
+        age: '',
+        phNumber: '',
+        email: '',
+      };
+    },
   },
 });
 
 console.log(empl);
-export const { commitData } = empl.actions;
+export const { commitData, resetState } = empl.actions;
 export default empl.reducer;
